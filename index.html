@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HOLLOW MERIDIAN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="field-log">FIELD LOG 07</span><strong>HOLLOW <span class="gold">MERIDIAN</span></strong></div>
+      <div class="status"><span>ENERGY <b id="header-energy">99</b></span><span>HOSTILES <b id="header-hostiles">09</b></span><span>ITEMS <b id="header-items">00/11</b></span><span>DEPTH <b id="header-depth">000 M</b></span></div>
+    </header>
+    <section class="game-frame">
+      <canvas id="game" width="1280" height="720" aria-label="Echo Descent game canvas"></canvas>
+      <div class="scanline"></div>
+      <div id="damage-flash" class="damage-flash"></div>
+      <div id="pause-card" class="pause-card hidden"><div class="pause-heading"><span>FIELD SYSTEMS</span><strong>PAUSED</strong><small>PRESS P TO RESUME</small></div><div class="pause-map-label">MORPH MAP // SECTOR OVERVIEW</div><canvas id="full-map" width="760" height="300"></canvas><div class="pause-legend"><span><i class="legend-player"></i> POSITION</span><span><i class="legend-upgrade"></i> UPGRADE</span><span><i class="legend-door"></i> SEALED DOOR</span><span><i class="legend-horror"></i> STALKER ZONE</span></div></div>
+      <div id="flight-hud" class="flight-hud"><span>SHIP HULL</span><div class="flight-meter"><i id="ship-health-bar"></i></div><b id="ship-health-text">100</b><strong>REACH THE FLOATING LAB</strong></div>
+      <div class="hud hud-left"><span class="label">ENERGY</span><div class="meter cyan"><i id="health-bar"></i></div><span id="health-text">99</span></div>
+      <div class="upgrade-readout"><span class="label">AUGMENTS</span><strong id="upgrade-text">NONE</strong></div>
+      <div class="minimap-wrap"><span>LOCAL MAP</span><canvas id="minimap" width="210" height="76"></canvas></div>
+      <div class="mission-card"><span>CURRENT OBJECTIVE</span><strong>Find a way through the silent station.</strong><i></i></div>
+      <div class="upgrade-guide">
+        <span class="guide-title">UPGRADE GUIDE // 1-8 TOGGLE</span>
+        <div class="guide-item locked" id="guide-double"><b>⇈</b><span>AIR STEP<small>W IN AIR / DOUBLE JUMP</small></span></div>
+        <div class="guide-item locked" id="guide-dash"><b>»</b><span>VECTOR DASH<small>SHIFT / BURST FORWARD</small></span></div>
+        <div class="guide-item locked" id="guide-morph"><b>◒</b><span>MORPH CORE<small>S / DOWN / COMPACT FORM</small></span></div>
+        <div class="guide-item locked" id="guide-homing"><b>⌁</b><span>HOMING MISSILES<small>SPACE / TRACKS TARGETS</small></span></div>
+        <div class="guide-item locked" id="guide-bombs"><b>●</b><span>BURST BOMBS<small>B IN MORPH FORM</small></span></div>
+        <div class="guide-item locked" id="guide-morphjump"><b>◒</b><span>MORPH LEAP<small>W IN MORPH FORM</small></span></div>
+        <div class="guide-item locked" id="guide-charge"><b>ϟ</b><span>CHARGE CORE<small>HOLD SPACE / RELEASE POWER SHOT</small></span></div>
+        <div class="guide-item locked" id="guide-shield"><b>◇</b><span>VEIL SHIELD<small>REDUCES CONTACT DAMAGE</small></span></div>
+      </div>
+      <div id="start-card" class="start-card">
+        <p class="eyebrow">FIELD NOTE 07 // LIVE TRANSMISSION</p>
+        <h1>ECHO<span>//</span><br>DESCENT</h1>
+        <p class="intro">The buried station is still humming. Find the three signal shards, wake the lift, and make it back before the deep starts listening.</p>
+        <button id="start-button">ENTER THE DEEP <b>→</b></button>
+        <div class="controls"><span><kbd>A</kbd><kbd>D</kbd> MOVE</span><span><kbd>W</kbd> JUMP</span><span><kbd>SPACE</kbd> PULSE</span></div>
+      </div>
+      <div id="win-card" class="start-card hidden">
+        <p class="eyebrow">FLOATING LAB // ARRIVAL</p><div class="medal-scene"><div class="lab-window"></div><div class="lab-console"></div><div class="medal-explorer"><i></i><b></b><em></em></div><div class="medal-ribbon"></div><div class="medal-badge">✦</div></div><h2>FIELD<br>HONORS.</h2><p class="intro">Inside the floating lab, the explorer receives the Meridian medal. The station is quiet at last.</p><button id="restart-button">RUN IT AGAIN <b>↻</b></button>
+      </div>
+      <div id="game-over-card" class="start-card hidden">
+        <p class="eyebrow danger-copy">SUIT SIGNAL LOST</p><h2>THE STATION<br>KEPT YOU.</h2><p class="intro">The Meridian has gone quiet around you. Re-enter the field and try a different route.</p><button id="game-over-restart">RE-ENTER FIELD <b>↻</b></button>
+      </div>
+      <div class="corner-readout">DEPTH <span id="depth">000</span>m<br><span class="muted">AUTO-MAP / ONLINE</span></div>
+      <div class="objective"><span class="objective-dot"></span><span id="objective-text">COLLECT SIGNAL SHARDS</span></div>
+    </section>
+    <footer><span>© 2026 ECHO LABS</span><span>AN ORIGINAL EXPLORATION PROTOTYPE</span><span>BUILD 01.07</span></footer>
+  </main>
+  <script src="game.js?v=46"></script>
+</body>
+</html>
